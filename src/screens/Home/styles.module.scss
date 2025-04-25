@@ -1,0 +1,81 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.content {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.yard {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.areaBanner {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.banner {
+  width: 100%;
+  height: auto;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.areaBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  .titleBody {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+      font-size: 4rem;
+      font-weight: bold;
+      font-family: var(--font-dancing-script), cursive !important;
+      color: #333;
+      text-transform: uppercase;
+    }
+
+    .linkPage {
+      font-size: 1.2rem;
+      color: #ffbe33;
+      text-transform: uppercase;
+    }
+  }
+
+  .menuBody {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+  }
+
+}

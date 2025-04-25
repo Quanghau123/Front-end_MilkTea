@@ -1,0 +1,54 @@
+.container {
+    width: 100%;
+    min-height: 120px;
+    background-color: #222831;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .yard {
+        width: 60%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px;
+        color: #ffffff;
+        text-align: center;
+
+        .areaLeft {
+            .blockAddress {
+                padding-bottom: 10px;
+
+                .linkAddress {
+                    color: #ffffff;
+                    font-size: 1.5rem;
+                }
+            }
+
+            .blockPhone {
+                .linkPhone {
+                    color: #ffffff;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+
+        .areaBetween {
+            .blockFacebook {
+                padding-top: 10px;
+            }
+        }
+
+        .blockTitle {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-family: var(--font-dancing-script), cursive !important;
+        }
+
+        .blockContent {
+            font-size: 1.5rem;
+            line-height: 25px;
+        }
+    }
+}

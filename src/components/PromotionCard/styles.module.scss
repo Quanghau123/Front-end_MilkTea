@@ -1,0 +1,65 @@
+.container {
+    width: 30rem;
+    min-height: 35rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: transform 0.3s ease-in-out;
+  
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.5rem;
+  }
+  
+  .areaTop {
+    position: relative;
+    height: 20rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+  }
+  
+  .image {
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+  
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  
+  .areaBottom {
+    padding: 0.75rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    gap: 0.5rem;
+  }
+  
+  .blockStartDate,
+  .blockEndDate {
+    font-size: 1.2rem;
+    color: #6b7280;
+  }
+  
+  .blockTitle {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1f2937;
+  }
+  
+  .blockdescription {
+    font-size: 1.4rem;
+    color: #10b981; 
+    font-weight: 500;
+  }
+  

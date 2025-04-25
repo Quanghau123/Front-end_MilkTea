@@ -1,0 +1,33 @@
+.container {
+    .content {
+        .navBar {
+            .ulNavbar {
+                display: flex;
+                flex-direction: row;
+                gap: 5rem;
+
+                .liNavbar {
+                    padding: 10px;
+                    border-radius: 50px;
+                    transition: all 0.3s ease;
+
+                    .linkNavbar {
+                        font-size: 1.6rem;
+                        font-weight: 550;
+                        color: var(--textColor);
+                    }
+
+                    &:hover {
+                        background-color: rgba(217, 119, 6, 0.7);
+                        cursor: pointer;
+                        transform: scale(1.1);
+                    }
+
+                    &:hover .linkNavbar {
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}

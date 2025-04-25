@@ -1,0 +1,29 @@
+.container {
+    width: 100%;
+    min-height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    z-index: 10;
+
+    .yard {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        .areaLeft {
+
+            .titleMenu {
+                font-size: 4rem;
+                font-weight: bold;
+                font-family: var(--font-dancing-script), cursive !important;
+                color: #333;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
