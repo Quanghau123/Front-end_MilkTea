@@ -1,7 +1,29 @@
-import type { NextConfig } from "next";
+import path from "path";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: "/api/login",
+        destination: "https://back-end-milktea.onrender.com/Login",
+      },
+    ];
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com",
+        pathname: "/**",
+      },
+    ],
+  },
+  experimental: {
+    serverActions: {
+      enable: true,
+    },
+  },
 };
 
 export default nextConfig;

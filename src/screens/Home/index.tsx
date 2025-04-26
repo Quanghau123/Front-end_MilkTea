@@ -26,7 +26,7 @@ const Home = () => {
                 <span>Xem Tất Cả</span>
               </Link>
             </div>
-            <TeaCard />
+            {/* <TeaCard /> */}
           </div>
 
           <div className={styles.areaBody}>
