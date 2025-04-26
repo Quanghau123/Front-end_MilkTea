@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/redux/store";
 import { fetchCategories } from "@/redux/slices/CategorySlice";
+import { CategoryProps } from "@/types/CategoryProps";
+
 import styles from "@/components/Categories/styles.module.scss";
 
 const Categories = () => {
@@ -33,9 +35,7 @@ const Categories = () => {
                             <span className={styles.linkNavbar}>TẤT CẢ</span>
                         </li>
 
-                        {loading && <li>Loading...</li>}
-                        {error && <li className={styles.error}>{error}</li>}
-                        {!loading && !error && categories.map((category) => (
+                        {!loading && !error && categories.map((category: CategoryProps) => (
                             <li
                                 key={category.CategoryId}
                                 className={styles.liNavbar}

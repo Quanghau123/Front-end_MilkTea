@@ -30,7 +30,7 @@ const ListProduct = () => {
             {loading && <p>Loading...</p>}
             {error && <p className={styles.error}>{error}</p>}
             {!loading && !error && filteredProducts.length === 0 && (
-                <p>Không có sản phẩm nào.</p>
+                <p className={styles.noProductsMessage}>Không có sản phẩm nào.</p>
             )}
             <div className={styles.grid}>
                 {!loading && !error && filteredProducts.map((product) => (

@@ -1,6 +1,6 @@
 'use client';
 
-import Banner_About_one from "@/assets/About/Banner_About_one.jpeg";
+import Banner_About_one from "@/assets/About/Banner_About2.jpeg";
 import Image from "next/image";
 import About_image1 from "@/assets/About/About_image1.jpeg";
 import About_image2 from "@/assets/About/About_image2.jpeg";

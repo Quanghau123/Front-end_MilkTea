@@ -2,7 +2,7 @@ import Image from "next/image";
 import bannerHomeone from "@/assets/Home/banner-Home-one.jpg";
 import Menu from "@/assets/Home/menu.jpg"
 
-import TeaCard from "@/components/TeaCard";
+import TopProducts from "@/components/TopProducts";
 import ReviewCard from "@/components/ReviewCard"
 
 import styles from "@/screens/Home/styles.module.scss"
@@ -26,7 +26,7 @@ const Home = () => {
                 <span>Xem Tất Cả</span>
               </Link>
             </div>
-            {/* <TeaCard /> */}
+            <TopProducts />
           </div>
 
           <div className={styles.areaBody}>
