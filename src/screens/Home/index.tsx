@@ -1,24 +1,41 @@
-"use client"
+"use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import bannerHomeone from "@/assets/Home/banner-Home-one.jpg";
 import Menu from "@/assets/Home/menu.jpg";
 
 import TopProducts from "@/components/TopProducts";
 import ReviewCard from "@/components/ReviewCard";
+import Modal from "@/components/ModalImgMenu";
 
 import styles from "@/screens/Home/styles.module.scss";
 import Link from "next/link";
 
 const Home = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | StaticImageData | null>(null);
+
+  const handleImageClick = (imageSrc: string | StaticImageData) => {
+    setSelectedImage(imageSrc);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
         <div className={styles.yard}>
           <div className={styles.areaBanner}>
             <div className={styles.banner}>
-              <Image src={bannerHomeone} alt="BannerHomeone" />
+              <Image
+                src={bannerHomeone}
+                alt="BannerHomeone"
+                className={styles.bannerImage}
+              />
             </div>
           </div>
 
@@ -46,7 +63,9 @@ const Home = () => {
                   src={Menu}
                   alt="Menu"
                   className={styles.menuImage}
+                  onClick={() => handleImageClick(Menu)}
                 />
+                <span className={styles.zoomText}>Phóng To</span>
               </div>
 
               <div className={styles.contentBody}>
@@ -71,6 +90,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal} imageSrc={selectedImage} altText="Image" />
     </div>
   );
 };
