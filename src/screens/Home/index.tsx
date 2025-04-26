@@ -1,11 +1,14 @@
+"use client"
+
+import { useState } from "react";
 import Image from "next/image";
 import bannerHomeone from "@/assets/Home/banner-Home-one.jpg";
-import Menu from "@/assets/Home/menu.jpg"
+import Menu from "@/assets/Home/menu.jpg";
 
 import TopProducts from "@/components/TopProducts";
-import ReviewCard from "@/components/ReviewCard"
+import ReviewCard from "@/components/ReviewCard";
 
-import styles from "@/screens/Home/styles.module.scss"
+import styles from "@/screens/Home/styles.module.scss";
 import Link from "next/link";
 
 const Home = () => {
@@ -15,7 +18,7 @@ const Home = () => {
         <div className={styles.yard}>
           <div className={styles.areaBanner}>
             <div className={styles.banner}>
-              <Image src={bannerHomeone} alt="BannerHomeone"></Image>
+              <Image src={bannerHomeone} alt="BannerHomeone" />
             </div>
           </div>
 
@@ -31,27 +34,45 @@ const Home = () => {
 
           <div className={styles.areaBody}>
             <div className={styles.titleBody}>
-              <p>Menu</p>
+              <p>Menu Của Chúng Tôi</p>
               <Link href="" className={styles.linkPage}>
                 <span>Xem Tất Cả</span>
               </Link>
             </div>
-            <div className={styles.menuBody}>
-              <Image src={Menu} alt="Menu"></Image>
+
+            <div className={styles.sectionBody}>
+              <div className={styles.menuBody}>
+                <Image
+                  src={Menu}
+                  alt="Menu"
+                  className={styles.menuImage}
+                />
+              </div>
+
+              <div className={styles.contentBody}>
+                <h2>Đa Dạng Thức Uống Trong Menu</h2>
+                <p>
+                  Tại BADGER'S Tea, chúng tôi tự hào giới thiệu thực đơn phong phú với hơn 40 loại thức uống,
+                  từ trà sữa truyền thống cho đến những sáng tạo độc đáo. Mỗi ly nước đều được chăm chút kỹ lưỡng,
+                  mang đậm dấu ấn riêng biệt trong từng hương vị.
+                </p>
+              </div>
             </div>
           </div>
 
           <div className={styles.areaBody}>
             <div className={styles.titleBody}>
-              <p>ĐÁNH GIÁ CỦA KHÁCH HÀNG VỀ BADGER'S</p>
+              <p>Đánh Giá Của Khách Hàng Về BADGER'S</p>
               <Link href="" className={styles.linkPage}>
                 <span>Xem Tất Cả</span>
               </Link>
             </div>
+            {/* ReviewCard hoặc các phần khác */}
           </div>
         </div>
       </div>
     </div>
   );
 };
+
 export default Home;

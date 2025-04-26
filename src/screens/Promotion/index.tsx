@@ -1,7 +1,7 @@
 import Image from "next/image";
 import banner from "@/assets/Promotion/banner.jpeg";
 
-import PromotionCard from "@/components/PromotionCard";
+import ListPromotion from "@/components/ListPromotion";
 
 import styles from "@/screens/Promotion/styles.module.scss"
 import Link from "next/link";
@@ -21,7 +21,7 @@ const Promotion = () => {
                         <div className={styles.titleBody}>
                             <p>KHUYẾN MÃI NỔI BẬT</p>
                         </div>
-                        <PromotionCard />
+                        <ListPromotion />
                     </div>
                 </div>
             </div>

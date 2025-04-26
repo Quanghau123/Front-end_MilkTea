@@ -1,36 +1,49 @@
 import Image from "next/image";
-import styles from "./styles.module.scss";
-import TeaCard1 from "@/assets/TeaCard/TeaCard1.jpg";
+import { PromotionProps } from "@/types/PromotionProps";
+import styles from "@/components/PromotionCard/styles.module.scss";
 
-const PromotionCard = () => {
-    return (
-        <div className={styles.container}>
-            <div className={styles.content}>
-                <div className={styles.areaTop}>
-                    <Image
-                        src={TeaCard1}
-                        alt="Trà sữa socola"
-                        fill
-                        className={styles.image}
-                    />
-                </div>
-                <div className={styles.areaBottom}>
-                    <div className={styles.blockStartDate}>
-                        <span>14/02/2025</span>
-                    </div>
-                    <div className={styles.blockEndDate}>
-                        <span>20/02/2025</span>
-                    </div>
-                    <div className={styles.blockTitle}>
-                        <span>Trà sữa socola</span>
-                    </div>
-                    <div className={styles.blockdescription}>
-                        <span>Giảm giá trà sửa 50%</span>
-                    </div>
-                </div>
-            </div>
+interface PromotionCardProps {
+  promotion: PromotionProps;
+}
+
+const PromotionCard = ({ promotion }: PromotionCardProps) => {
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    const day = ("0" + date.getDate()).slice(-2);
+    const month = ("0" + (date.getMonth() + 1)).slice(-2);
+    const year = date.getFullYear();
+
+    return `${day}/${month}/${year}`;
+  };
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <div className={styles.areaTop}>
+          <Image
+            src={promotion.ImageURL}
+            alt={promotion.Title}
+            fill
+            className={styles.image}
+          />
         </div>
-    );
+        <div className={styles.areaBottom}>
+          <div className={styles.blockStartDate}>
+            <span>Ngày Bắt Đầu: {formatDate(promotion.StartDate)}</span>
+          </div>
+          <div className={styles.blockEndDate}>
+            <span>Ngày Kết Thúc: {formatDate(promotion.EndDate)}</span>
+          </div>
+          <div className={styles.blockTitle}>
+            <span>{promotion.Title}</span>
+          </div>
+          <div className={styles.blockdescription}>
+            <span>{promotion.Scription}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default PromotionCard;

@@ -8,10 +8,12 @@
     .nav {
         position: relative;
         overflow: hidden;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
         .img_BarAbout {
-            width: 100vw;
-            height: 250px;
+            width: 90vw;
+            height: 390px;
             object-fit: cover;
         }
 

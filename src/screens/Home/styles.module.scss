@@ -52,30 +52,96 @@
       font-family: var(--font-dancing-script), cursive !important;
       color: #333;
       text-transform: uppercase;
+      text-align: center;
     }
 
     .linkPage {
-      font-size: 1.2rem;
+      font-size: 1.8rem;
       color: #ffbe33;
       text-transform: uppercase;
-    }
-  }
+      margin-top: 8px;
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: var(--font-dancing-script), cursive !important;
 
-  .menuBody {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
-    img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      transition: transform 0.3s ease-in-out;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #ffbe33;
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.3s ease;
+      }
 
       &:hover {
-        transform: scale(1.02);
+        color: #ff8c00;
+
+        &::after {
+          transform: scaleX(1);
+          transform-origin: bottom left;
+        }
       }
     }
   }
 
+  .sectionBody {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px 20px;
+    flex-wrap: wrap;
+
+    .menuBody {
+      position: relative;
+      overflow: hidden;
+      flex: 1;
+      max-width: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .menuImage {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+      }
+    }
+
+    .contentBody {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+
+      h2 {
+        font-size: 4.2rem;
+        margin-bottom: 16px;
+        color: #333;
+        font-family: var(--font-dancing-script), cursive;
+      }
+
+      p {
+        font-size: 1.8rem;
+        color: #555;
+        line-height: 1.6;
+      }
+    }
+  }
 }
