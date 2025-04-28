@@ -1,0 +1,133 @@
+.reviewForm {
+  width: 95%;
+  height: 520px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .reviewForm__input {
+    font-size: 1.5rem;
+  }
+
+  .reviewForm__input::placeholder {
+    font-size: 1.5rem;
+    color: #888;
+  }
+
+  .reviewForm__textarea {
+    font-size: 1.5rem;
+  }
+
+  .reviewForm__textarea::placeholder {
+    font-size: 1.5rem;
+    color: #888;
+  }
+
+  &__title {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #333;
+    font-family: var(--font-dancing-script), cursive !important;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+
+    span {
+      font-size: 4rem;
+      font-weight: 800;
+      color: #333;
+      font-family: var(--font-dancing-script), cursive !important;
+    }
+  }
+
+  &__avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover;
+  }
+
+  &__stars {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+
+    .star {
+      font-size: 3.5rem;
+      cursor: pointer;
+      color: #e4e5e9;
+      margin-right: 5px;
+      transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+
+      &:hover {
+        color: #ffeb3b;
+        transform: scale(1.2);
+      }
+
+      &.active {
+        color: #ffc107;
+        transform: scale(1.1);
+
+        &:hover {
+          color: #ff9800;
+        }
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+
+    label {
+      font-size: 1.5rem;
+      margin-bottom: 3px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input,
+    textarea {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.8rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}

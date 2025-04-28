@@ -1,0 +1,92 @@
+.cardWrapper {
+    width: 200px;
+    height: 300px;
+    perspective: 1000px; /* Tạo chiều sâu 3D */
+  }
+  
+  .card {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s; /* Hiệu ứng chuyển động */
+    transform-style: preserve-3d; /* Giữ các phần tử con trong không gian 3D */
+    position: relative;
+  }
+  
+  .card.flip {
+    transform: rotateY(180deg); /* Lật 180 độ khi hover */
+  }
+  
+  .front, .back {
+    backface-visibility: hidden; /* Ẩn mặt sau khi quay */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Cả hai mặt có cùng kích thước */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Căn giữa nội dung nếu cần */
+  }
+  
+  .front {
+    z-index: 2; /* Mặt trước luôn hiển thị đầu tiên */
+  }
+  
+  .back {
+    transform: rotateY(180deg); /* Mặt sau quay 180 độ */
+    z-index: 1; /* Mặt sau nằm dưới */
+  }
+  
+  .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .content {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .areaTop, .areaBottom {
+    width: 100%;
+    height: 50%; /* Phân chia đều không gian */
+  }
+  
+  .areaTop {
+    position: relative;
+  }
+  
+  .areaBottom {
+    position: relative;
+  }
+  
+  .image {
+    object-fit: cover; /* Giúp ảnh không bị méo khi fill container */
+    width: 100%; /* Đảm bảo ảnh phủ hết khu vực */
+    height: 100%; /* Đảm bảo ảnh phủ hết khu vực */
+  }
+  
+  .blockTitle, .blockPrice, .blockButton, .blockDescription {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .blockTitle {
+    margin-bottom: 10px;
+  }
+  
+  .blockPrice {
+    margin-bottom: 20px;
+  }
+  
+  .blockButton {
+    margin-top: 10px;
+  }
+  
+  .blockDescription {
+    padding: 10px;
+    font-size: 14px; /* Thêm kích thước font cho phần mô tả */
+    line-height: 1.5; /* Cải thiện khoảng cách dòng */
+  }
+  

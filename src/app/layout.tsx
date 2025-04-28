@@ -32,9 +32,7 @@ export default function RootLayout({
 }>) {
   const pathname = usePathname();
   const isAuthPage =
-    pathname === "/login" ||
-    pathname === "register" ||
-    pathname === "forgot-password";
+    pathname === "/AuthenticationPage";
 
   return (
     <html lang="en" suppressHydrationWarning>

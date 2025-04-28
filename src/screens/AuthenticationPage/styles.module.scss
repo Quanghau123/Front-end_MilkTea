@@ -1,0 +1,162 @@
+.authContainer {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(217, 119, 6, 0.7), rgba(245, 222, 179, 0.8));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .authCardWrapper {
+        width: 850px;
+        height: 85vh;
+        background: #fffaf0;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        transition: all 0.5s ease-in-out;
+
+        .authCardLeft,
+        .authCardRight {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 20px;
+            position: absolute;
+            top: 0;
+            background: #fffaf0;
+            transition: transform 0.6s ease-in-out, left 0.6s ease-in-out;
+
+            .authCard {
+                width: 100%;
+                background: #fff;
+                border-radius: 16px;
+                padding: 14px;
+                box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+
+                h2 {
+                    font-size: 3.5rem;
+                    font-weight: 600;
+                    text-align: center;
+                    font-family: var(--font-dancing-script), cursive !important;
+                }
+            }
+
+            .formItem {
+                width: 100%;
+                margin-bottom: 16px;
+            }
+
+            input,
+            .ant-input-password {
+                width: 100%;
+                padding: 0.2rem;
+                border-radius: 8px;
+                border: 1px solid #dcdcdc;
+                font-size: 16px;
+                margin-top: 5px;
+                margin-bottom: 8px;
+            }
+
+            label {
+                font-size: 16px;
+                color: #5d3a00;
+                margin-bottom: 5px;
+            }
+
+            button {
+                padding: 12px 25px;
+                background-color: #D2691E;
+                color: white;
+                font-size: 16px;
+                border: none;
+                border-radius: 30px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                width: 100%;
+                margin-top: 16px;
+            }
+
+            button:hover {
+                background-color: rgba(217, 119, 6, 0.7);
+            }
+        }
+
+        .authCardRight {
+            left: 100%;
+        }
+
+        .toggleContainer {
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.8), rgba(191, 141, 74, 0.8));
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            transition: all 0.6s ease-in-out, border-radius 0.6s ease-in-out;
+            color: #5d3a00;
+            text-align: center;
+            border-top-left-radius: 25%;
+            border-bottom-left-radius: 25%;
+
+            .toggle {
+                width: 100%;
+
+                .toggleLeft,
+                .toggleRight {
+                    h2 {
+                        font-size: 8rem;
+                        margin-bottom: 10px;
+                        font-family: var(--font-dancing-script), cursive !important;
+                    }
+
+                    p {
+                        font-size: 2rem;
+                        margin-bottom: 20px;
+                    }
+
+                    button {
+                        padding: 10px 25px;
+                        background-color: #993300;
+                        color: white;
+                        font-weight: bold;
+                        font-size: 16px;
+                        border-radius: 30px;
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+                    }
+
+                    button:hover {
+                        background: #D2691E;
+                    }
+                }
+            }
+        }
+
+        &.active {
+            .authCardLeft {
+                transform: translateX(-100%);
+            }
+
+            .authCardRight {
+                transform: translateX(-100%);
+            }
+
+            .toggleContainer {
+                right: 50%;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                border-top-right-radius: 25%;
+                border-bottom-right-radius: 25%;
+            }
+        }
+    }
+}

@@ -4,6 +4,7 @@ import categoryReducer from "./slices/CategorySlice";
 import productReducer from "./slices/ProductSlice";
 import promotionReducer from "./slices/PromotionSlice";
 import promotionDetailReducer from "./slices/PromotionDetailSlice";
+import reviewReducer from "./slices/reviewSlice";
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     product: productReducer,
     promotion: promotionReducer,
     promotionDetail: promotionDetailReducer,
+    review: reviewReducer,
   },
 });
 

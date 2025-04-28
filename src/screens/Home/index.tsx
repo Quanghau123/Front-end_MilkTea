@@ -6,7 +6,8 @@ import bannerHomeone from "@/assets/Home/banner-Home-one.jpg";
 import Menu from "@/assets/Home/menu.jpg";
 
 import TopProducts from "@/components/TopProducts";
-import ReviewCard from "@/components/ReviewCard";
+import ReviewForm from "@/components/ReviewForm";
+import ListReview from "@/components/ListReview"
 import Modal from "@/components/ModalImgMenu";
 
 import styles from "@/screens/Home/styles.module.scss";
@@ -42,9 +43,6 @@ const Home = () => {
           <div className={styles.areaBody}>
             <div className={styles.titleBody}>
               <p>Món Mới Nổi Bật</p>
-              <Link href="" className={styles.linkPage}>
-                <span>Xem Tất Cả</span>
-              </Link>
             </div>
             <TopProducts />
           </div>
@@ -81,12 +79,30 @@ const Home = () => {
 
           <div className={styles.areaBody}>
             <div className={styles.titleBody}>
-              <p>Đánh Giá Của Khách Hàng Về BADGER'S</p>
-              <Link href="" className={styles.linkPage}>
-                <span>Xem Tất Cả</span>
-              </Link>
+              <p>Đánh Giá Về BADGER'S Tea</p>
             </div>
-            {/* ReviewCard hoặc các phần khác */}
+
+            <div className={styles.sectionBody}>
+              <div className={styles.contentBody}>
+                <h2>Đánh Giá Để Cùng Hoàn Thiện Hơn Mỗi Ngày</h2>
+                <p>
+                  Tại BADGER'S Tea, chúng tôi luôn trân trọng những ý kiến đóng góp và phản hồi từ khách hàng. Mỗi đánh giá của bạn giúp chúng tôi hoàn thiện hơn và mang đến những trải nghiệm tốt nhất. Chúng tôi cam kết cải thiện chất lượng dịch vụ và sản phẩm, luôn lắng nghe và đáp ứng nhu cầu của bạn để mang lại sự hài lòng tuyệt đối.
+                </p>
+              </div>
+
+              <div className={styles.menuBody}>
+                <ReviewForm />
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.areaBody}>
+            <div className={styles.titleBody}>
+              <p>Đánh Giá Của Khách Hàng Về BADGER'S</p>
+            </div>
+            <div className={styles.listReviewBody}>
+              <ListReview />
+            </div>
           </div>
         </div>
       </div>

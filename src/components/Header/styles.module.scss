@@ -2,6 +2,7 @@
     width: 100%;
     min-height: 120px;
     display: flex;
+    justify-content: center;
     align-items: center;
     background: rgba(255, 255, 255, 0.95);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
@@ -13,21 +14,19 @@
         width: 80%;
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         justify-items: center;
         align-items: center;
         gap: 10px;
 
         .areaLeft {
-            margin-right: 20rem;
-
             .logo {
                 width: 10rem;
                 height: 10rem;
             }
         }
 
-        .areaRight {
+        .areaCentral {
 
             .ulNavbar {
                 display: flex;
@@ -54,6 +53,46 @@
                     &:hover .linkNavbar {
                         color: white;
                     }
+                }
+            }
+        }
+
+        .areaRight {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+
+            .iconLink {
+                display: flex;
+                align-items: center;
+
+                .iconShoppingCartOutlined {
+                    font-size: 3rem;
+                    color: #555;
+                    transition: all 0.3s ease;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: #ffa500;
+                    }
+                }
+            }
+
+            .iconUserOutlined {
+                font-size: 1.8rem;
+                color: #555;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                padding: 6px;
+                border: 2px solid #555;
+                border-radius: 50%;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+
+                &:hover {
+                    color: #3366CC !important;
+                    border-color: #3366CC;
                 }
             }
         }
