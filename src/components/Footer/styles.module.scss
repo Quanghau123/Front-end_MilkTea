@@ -7,7 +7,7 @@
     align-items: center;
 
     .yard {
-        width: 60%;
+        width: 80%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -36,6 +36,11 @@
         .areaBetween {
             .blockFacebook {
                 padding-top: 10px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
             }
         }
 

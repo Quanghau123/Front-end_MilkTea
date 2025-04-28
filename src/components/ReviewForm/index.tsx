@@ -9,11 +9,12 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const defaultAvatars = [
-  "https://raw.githubusercontent.com/lamlinhh/Travel_Web/refs/heads/main/assets/Images/th.webp",
-  "https://raw.githubusercontent.com/lamlinhh/Travel_Web/refs/heads/main/assets/Images/cat2.webp",
-  "https://raw.githubusercontent.com/lamlinhh/Travel_Web/refs/heads/main/assets/Images/cat3.webp",
-  "https://raw.githubusercontent.com/lamlinhh/Travel_Web/refs/heads/main/assets/Images/cat4.webp",
-  "https://raw.githubusercontent.com/lamlinhh/Travel_Web/refs/heads/main/assets/Images/cat5.webp",
+  "https://raw.githubusercontent.com/Quanghau123/Front-end_MilkTea/master/src/assets/Avatar/Avatar1.jpeg",
+  "https://raw.githubusercontent.com/Quanghau123/Front-end_MilkTea/master/src/assets/Avatar/Avatar2.jpeg",
+  "https://raw.githubusercontent.com/Quanghau123/Front-end_MilkTea/master/src/assets/Avatar/Avatar3.jpeg",
+  "https://raw.githubusercontent.com/Quanghau123/Front-end_MilkTea/master/src/assets/Avatar/Avatar4.jpeg",
+  "https://raw.githubusercontent.com/Quanghau123/Front-end_MilkTea/master/src/assets/Avatar/Avatar5.jpeg",
+  "https://raw.githubusercontent.com/Quanghau123/Front-end_MilkTea/master/src/assets/Avatar/Avatar6.jpeg",
 ];
 
 const getRandomAvatar = () => {

@@ -5,6 +5,9 @@ import {
     FacebookFilled,
 } from "@ant-design/icons";
 
+import { AiOutlineGoogle } from "react-icons/ai";
+import { SiTiktok } from "react-icons/si";
+
 import styles from "@/components/Footer/styles.module.scss"
 
 const Footer = () => {
@@ -41,6 +44,12 @@ const Footer = () => {
                     <div className={styles.blockFacebook}>
                         <Link href="" className={styles.linkFacebook}>
                             <FacebookFilled style={{ fontSize: "30px", color: "#1877F2" }} />
+                        </Link>
+                        <Link href="" className={styles.linkGoogle}>
+                            <AiOutlineGoogle style={{ fontSize: "30px", color: "#DB4437" }} />
+                        </Link>
+                        <Link href="" className={styles.linkTiktok}>
+                            <SiTiktok style={{ fontSize: "30px", color: "black" }} />
                         </Link>
                     </div>
                 </div>
