@@ -59,7 +59,7 @@ const Header = () => {
         </div>
 
         <div className={styles.areaRight}>
-          <Link href="/Cart" className={styles.iconLink}>
+          <Link href="/ShoppingCart" className={styles.iconLink}>
             <div className={styles.iconShoppingCartOutlined}>
               <ShoppingCartOutlined />
             </div>

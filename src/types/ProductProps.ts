@@ -3,7 +3,6 @@ export interface ProductProps {
     CategoryId: number;
     ProductName: string;
     Price: number;
-    Size: string;
     Description: string;
     ImageURL: string;
     Available: boolean;

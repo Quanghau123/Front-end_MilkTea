@@ -1,0 +1,143 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+
+  .yard {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url("https://raw.githubusercontent.com/lamlinhh/Travel_Web/hau/assets/Images/backgroud_payment.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 90%;
+    min-height: 100vh;
+    padding: 60px 5%;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .area {
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 40px;
+      background: linear-gradient(135deg, #fdfbfb, #ebedee);
+      border-left: 8px solid #e65c2e;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      font-family: "Segoe UI", sans-serif;
+      color: #333;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+
+  .blockImage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    border-radius: 20px;
+
+    .image {
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+
+  .blockTitle {
+    .title {
+      font-family: 'Dancing Script', cursive;
+      text-align: center;
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: #e65c2e;
+      margin-bottom: 32px;
+    }
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.label {
+  font-weight: 600;
+  color: #555;
+}
+
+.value {
+  color: #222;
+  font-size: 16px;
+  padding: 6px 8px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+}
+
+.select {
+  padding: 6px 12px;
+  font-size: 14px;
+  width: 100%;
+  border: 1px solid #f7f7f7;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  transition: border 0.3s;
+
+  &:hover {
+    border-color: #d1d1d1;
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #d1d1d1;
+    box-shadow: 0 0 0 3px rgba(209, 209, 209, 0.2);
+  }
+}
+
+.paymentButtons {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.payButton {
+  padding: 12px 28px;
+  background-color: #e65c2e;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: #f5a16f;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+}

@@ -35,7 +35,14 @@ const About = () => {
             <div className={styles.block_content}>
               <div className={styles.content_wrapper}>
                 <div className={styles.title_text}>
-                  <span className={styles.char_text}>H</span>
+                  <span
+                    className={styles.char_text}
+                    style={{
+                      fontFamily: "'Dancing Script', cursive"
+                    }}
+                  >
+                    H
+                  </span>
                   ành trình của Badger’s Tea bắt đầu từ niềm đam mê khám phá và tình yêu với sự đa dạng trong hương vị trà từ khắp nơi trên thế giới. Được thành lập vào năm 2010, Badger’s Tea ra đời với mong muốn mang đến những trải nghiệm trà sữa độc đáo, được tuyển chọn kỹ lưỡng – vượt xa khỏi những ly trà sữa thông thường.
                 </div>
               </div>

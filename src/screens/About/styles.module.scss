@@ -27,13 +27,15 @@
 
             .BarText1 {
                 color: white;
-                font-size: 3rem;
+                font-size: 5rem;
                 font-weight: 600;
+                font-family: var(--font-dancing-script), cursive !important;
             }
 
             .BarText2 {
                 color: white;
-                font-size: 2.5rem;
+                font-size: 3rem;
+                font-family: var(--font-dancing-script), cursive !important;
             }
         }
     }
