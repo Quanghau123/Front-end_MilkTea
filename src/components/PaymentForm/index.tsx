@@ -38,7 +38,7 @@ const PaymentForm = () => {
 
     if (storedUser) {
       const parsedUser = JSON.parse(storedUser);
-      console.log("Parsed user from localStorage:", parsedUser);
+      console.log("Người dùng từ localStorage:", parsedUser);
       setUserId(parsedUser.UserId ? Number(parsedUser.UserId) : null);
       setUserDetails(parsedUser);
     }
@@ -46,41 +46,41 @@ const PaymentForm = () => {
 
   useEffect(() => {
     if (orderId) {
-      console.log("Dispatching getOrderByIdThunk with orderId:", orderId);
+      console.log("Lấy đơn hàng theo ID:", orderId);
       dispatch(getOrderByIdThunk(orderId));
     }
   }, [orderId, dispatch]);
 
   const orderData = order;
-  console.log("Fetched orderData:", orderData);
+  console.log("Dữ liệu đơn hàng:", orderData);
 
   const handleMomoPayment = async () => {
     if (!userId || !orderId) {
-      toast.error("Missing MOMO payment information.");
+      toast.error("Thiếu thông tin thanh toán MoMo.");
       return;
     }
 
     const momoData = { OrderId: orderId, UserId: userId };
-    console.log("Sending momoData:", momoData);
+    console.log("Gửi dữ liệu MoMo:", momoData);
 
     try {
       const momoResult = await dispatch(processMomoPayment(momoData));
-      console.log("MOMO payment result:", momoResult);
+      console.log("Kết quả thanh toán MoMo:", momoResult);
 
       if (momoResult?.payload?.payUrl) {
         window.location.href = momoResult.payload.payUrl;
       } else {
-        toast.error("Could not retrieve MOMO payment URL.");
+        toast.error("Không thể lấy được liên kết thanh toán MoMo.");
       }
     } catch (error) {
-      console.error("MOMO payment error:", error);
-      toast.error("An error occurred while processing MOMO payment.");
+      console.error("Lỗi khi xử lý thanh toán MoMo:", error);
+      toast.error("Đã xảy ra lỗi khi thanh toán MoMo.");
     }
   };
 
   const handleOfflinePayment = async () => {
     if (!userId || !orderId || !orderData) {
-      toast.error("Missing OFFLINE payment information.");
+      toast.error("Thiếu thông tin thanh toán trực tiếp.");
       return;
     }
 
@@ -93,31 +93,31 @@ const PaymentForm = () => {
       Amount: amount,
     };
 
-    console.log("Sending offline payment data:", paymentData);
+    console.log("Gửi dữ liệu thanh toán trực tiếp:", paymentData);
 
     try {
       const result = await dispatch(createPayment(paymentData));
-      console.log("Offline payment result:", result);
+      console.log("Kết quả thanh toán trực tiếp:", result);
 
       if (result?.payload?.errCode === 0) {
-        toast.success("Your offline payment has been recorded. Please complete payment at the counter.");
+        toast.success("Thanh toán trực tiếp đã được ghi nhận. Vui lòng thanh toán khi nhận hàng.");
       } else {
-        toast.error("An error occurred while creating the offline payment.");
+        toast.error("Đã xảy ra lỗi khi tạo thanh toán trực tiếp.");
       }
     } catch (error) {
-      console.error("Offline payment error:", error);
-      toast.error("An error occurred while processing offline payment.");
+      console.error("Lỗi thanh toán trực tiếp:", error);
+      toast.error("Đã xảy ra lỗi khi xử lý thanh toán trực tiếp.");
     }
   };
 
   const handleCreatePayment = () => {
-    console.log("Selected payment method:", paymentMethod);
+    console.log("Phương thức thanh toán đã chọn:", paymentMethod);
     if (paymentMethod === "MOMO") {
       handleMomoPayment();
     } else if (paymentMethod === "OFFLINE") {
       handleOfflinePayment();
     } else {
-      toast.error("Please select a valid payment method.");
+      toast.error("Vui lòng chọn phương thức thanh toán hợp lệ.");
     }
   };
 
@@ -133,26 +133,26 @@ const PaymentForm = () => {
           <div className={styles.banner}>
             <div className={styles.blockImage}>
               <Image
-                src="https://raw.githubusercontent.com/lamlinhh/Travel_Web/hau/assets/Images/banner_payment.jpeg"
-                alt="Payment Banner"
+                src="https://raw.githubusercontent.com/Quanghau123/Front-end_MilkTea/master/src/assets/About/About_image1.jpeg"
+                alt="Ảnh Thanh Toán"
                 fill
                 style={{ objectFit: "cover" }}
               />
             </div>
             <div className={styles.blockTitle}>
-              <h2 className={styles.title}>PAYMENT FOR TOUR</h2>
+              <h2 className={styles.title}>THANH TOÁN</h2>
             </div>
           </div>
 
-          {loading && <p>Loading...</p>}
-          {error && <p style={{ color: "red" }}>Error: {error}</p>}
+          {loading && <p>Đang tải dữ liệu...</p>}
+          {error && <p style={{ color: "red" }}>Lỗi: {error}</p>}
 
           <div className={styles.row}>
             <span className={styles.label}>
-              <UserOutlined style={{ color: "#e65c2e" }} /> Username:
+              <UserOutlined style={{ color: "#e65c2e" }} /> Tên Tài Khoản:
             </span>
             <span className={styles.value}>
-              {userDetails?.UserName || "Loading..."}
+              {userDetails?.UserName || "Đang tải..."}
             </span>
           </div>
 
@@ -161,46 +161,46 @@ const PaymentForm = () => {
               <MailOutlined style={{ color: "#e65c2e" }} /> Email:
             </span>
             <span className={styles.value}>
-              {userDetails?.Email || "Loading..."}
+              {userDetails?.Email || "Đang tải..."}
             </span>
           </div>
 
           <div className={styles.row}>
             <span className={styles.label}>
-              <PhoneOutlined style={{ color: "#e65c2e" }} /> Phone:
+              <PhoneOutlined style={{ color: "#e65c2e" }} /> Số Điện Thoại:
             </span>
             <span className={styles.value}>
-              {userDetails?.Phone || "Loading..."}
+              {userDetails?.Phone || "Đang tải..."}
             </span>
           </div>
 
           <div className={styles.row}>
             <span className={styles.label}>
-              <DollarOutlined style={{ color: "#e65c2e" }} /> Amount:
+              <DollarOutlined style={{ color: "#e65c2e" }} /> Tiền Thanh Toán:
             </span>
             <span className={styles.value}>
-              {orderData?.TotalAmount ? `${orderData.TotalAmount} $` : "Loading..."}
+              {orderData?.TotalAmount ? `${orderData.TotalAmount} VND` : "Đang tải..."}
             </span>
           </div>
 
           <div className={styles.row}>
             <span className={styles.label}>
-              <CreditCardOutlined style={{ color: "#e65c2e" }} /> Payment Method:
+              <CreditCardOutlined style={{ color: "#e65c2e" }} /> Phương Thức Thanh Toán:
             </span>
             <select
               className={styles.select}
               value={paymentMethod}
               onChange={(e) => setPaymentMethod(e.target.value)}
             >
-              <option value="MOMO">MOMO</option>
-              <option value="OFFLINE">Pay at Counter</option>
+              <option value="MOMO">Ví Điện Tử MoMo</option>
+              <option value="OFFLINE">Thanh Toán Khi Nhận Hàng</option>
             </select>
           </div>
 
           <div className={styles.row}>
-            <span className={styles.label}>Status:</span>
+            <span className={styles.label}>Trạng Thái Thanh Toán:</span>
             <span className={styles.value}>
-              {paymentStatus ? "Paid" : "Unpaid"}
+              {paymentStatus ? "Đã Thanh Toán" : "Chưa Thanh Toán"}
             </span>
           </div>
 
@@ -212,7 +212,7 @@ const PaymentForm = () => {
               whileTap={{ scale: 0.95 }}
               whileHover={{ scale: 1.03 }}
             >
-              {loading ? "Processing..." : "Pay Now"}
+              {loading ? "Đang xử lý..." : "Thanh Toán Ngay"}
             </motion.button>
           </div>
         </motion.div>

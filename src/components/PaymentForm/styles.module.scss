@@ -1,31 +1,19 @@
 .container {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
-  margin-bottom: 30px;
 
   .yard {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("https://raw.githubusercontent.com/lamlinhh/Travel_Web/hau/assets/Images/backgroud_payment.jpeg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    width: 90%;
-    min-height: 100vh;
-    padding: 60px 5%;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    padding: 3rem 3rem;
     display: flex;
-    align-items: center;
     justify-content: center;
 
     .area {
-      max-width: 600px;
-      margin: 60px auto;
+      width: 90%;
+      padding: 0 3rem;
       padding: 40px;
       background: linear-gradient(135deg, #fdfbfb, #ebedee);
-      border-left: 8px solid #e65c2e;
+      border-left: 8px solid rgba(217, 119, 6, 0.7);
       border-radius: 16px;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
       font-family: "Segoe UI", sans-serif;
@@ -61,9 +49,9 @@
     .title {
       font-family: 'Dancing Script', cursive;
       text-align: center;
-      font-size: 2.3rem;
-      font-weight: 700;
-      color: #e65c2e;
+      font-size: 4.5rem;
+      font-weight: bold;
+      color: rgba(217, 119, 6, 0.7);
       margin-bottom: 32px;
     }
   }
@@ -78,21 +66,23 @@
 }
 
 .label {
+  text-align: start;
+  font-size: 2rem;
   font-weight: 600;
   color: #555;
 }
 
 .value {
   color: #222;
-  font-size: 16px;
+  font-size: 2rem;
   padding: 6px 8px;
   background-color: #f7f7f7;
   border-radius: 8px;
 }
 
 .select {
-  padding: 6px 12px;
-  font-size: 14px;
+  padding: 6px 0px;
+  font-size: 2rem;
   width: 100%;
   border: 1px solid #f7f7f7;
   border-radius: 8px;
@@ -117,8 +107,8 @@
 }
 
 .payButton {
-  padding: 12px 28px;
-  background-color: #e65c2e;
+  padding: 1.2rem 15rem;
+  background-color: rgba(217, 119, 6, 0.7);
   color: #fff;
   font-size: 16px;
   font-weight: 600;
@@ -128,7 +118,7 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
 
   &:hover {
-    background-color: #f5a16f;
+    background-color: rgba(194, 110, 14, 0.7);
     transform: translateY(-2px);
   }
 
