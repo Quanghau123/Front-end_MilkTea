@@ -1,8 +1,8 @@
 export interface ProductProps {
-    ProductId: number;
-    CategoryId: number;
+    ProductId?: number;
+    CategoryId: number | string;
     ProductName: string;
-    Price: number;
+    Price: number | string;
     Description: string;
     ImageURL: string;
     Available: boolean;

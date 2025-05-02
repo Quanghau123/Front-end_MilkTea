@@ -15,6 +15,7 @@ const initialState: PaymentState = {
   payment: undefined,
   searchResult: [],
   loading: false,
+  error: undefined,
 };
 
 export const fetchPayments = createAsyncThunk("payment/fetchAll", async () => {
@@ -67,10 +68,18 @@ export const processMomoPayment = createAsyncThunk("payment/momo", async (momoDa
   return res.data;
 });
 
-export const handleMomoCallback = createAsyncThunk("payment/momoCallback", async (callbackData: any) => {
-  const res = await axiosInstance.post("/Payment/Callback", callbackData);
-  return res.data;
-});
+export const handleMomoCallback = createAsyncThunk(
+  "payment/momoCallback",
+  async (callbackData: { paymentId: number; transactionId: string; resultCode: number }, thunkAPI) => {
+    try {
+      const { paymentId, transactionId, resultCode } = callbackData;
+      const res = await axiosInstance.post("/Payment/Callback", { transactionId, resultCode });
+      return { paymentId, status: res.data.status };
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error.response?.data || "Momo Callback failed");
+    }
+  }
+);
 
 const paymentSlice = createSlice({
   name: "payment",
@@ -81,9 +90,9 @@ const paymentSlice = createSlice({
       .addCase(fetchPayments.pending, (state) => {
         state.loading = true;
       })
-      .addCase(fetchPayments.fulfilled, (state, action: PayloadAction<PaymentProps[]>) => {
+      .addCase(fetchPayments.fulfilled, (state, action) => {
         state.loading = false;
-        state.payments = action.payload;
+        state.payments = action.payload.data;
       })
       .addCase(fetchPayments.rejected, (state, action) => {
         state.loading = false;
@@ -101,9 +110,9 @@ const paymentSlice = createSlice({
       .addCase(fetchSearch.pending, (state) => {
         state.loading = true;
       })
-      .addCase(fetchSearch.fulfilled, (state, action: PayloadAction<PaymentProps[]>) => {
+      .addCase(fetchSearch.fulfilled, (state, action) => {
         state.loading = false;
-        state.searchResult = action.payload;
+        state.searchResult = action.payload?.data || [];
       })
       .addCase(fetchSearch.rejected, (state, action) => {
         state.loading = false;
@@ -127,8 +136,15 @@ const paymentSlice = createSlice({
         console.log("Momo Response:", action.payload);
       })
 
-      .addCase(handleMomoCallback.fulfilled, (_, action) => {
-        console.log("Momo Callback:", action.payload);
+      .addCase(handleMomoCallback.fulfilled, (state, action: PayloadAction<{ paymentId: number; status: boolean }>) => {
+        const { paymentId, status } = action.payload;
+        const payment = state.payments.find(p => p.PaymentId === paymentId);
+        if (payment) {
+          payment.PaymentStatus = status;
+        }
+      })
+      .addCase(handleMomoCallback.rejected, (state, action) => {
+        state.error = action.payload as string;
       });
   },
 });

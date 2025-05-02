@@ -1,5 +1,5 @@
 export interface PromotionProps {
-    PromotionId: number;
+    PromotionId?: number;
     StartDate: string;
     EndDate: string;
     Title: string;

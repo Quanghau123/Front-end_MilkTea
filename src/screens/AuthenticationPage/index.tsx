@@ -31,13 +31,20 @@ const AuthenticationPage = () => {
         Email: formData.Email,
         UserPassword: formData.UserPassword
       });
+
       if (data?.errCode === 0) {
         const { token, user } = data;
         localStorage.setItem("user", JSON.stringify(user));
         document.cookie = `token=${token}; path=/; max-age=86400; Secure; SameSite=Strict`;
 
         toast.success("Đăng nhập thành công!");
-        router.push("/");
+
+        if (user.Role === "admin") {
+          router.push("/admin/category");
+        } else {
+          router.push("/");
+        }
+
       } else {
         toast.error("Email hoặc mật khẩu không chính xác!");
       }
