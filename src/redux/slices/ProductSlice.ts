@@ -8,6 +8,9 @@ interface ProductState {
   loading: boolean;
   error: string | null;
   successMessage: string | null;
+  total: number;
+  totalPages: number;
+  currentPage: number;
 }
 
 const initialState: ProductState = {
@@ -16,17 +19,35 @@ const initialState: ProductState = {
   loading: false,
   error: null,
   successMessage: null,
+  total: 0,
+  totalPages: 0,
+  currentPage: 1,
 };
+
+const itemsPerPage = 6; 
 
 export const fetchProducts = createAsyncThunk(
   "product/fetchProducts",
-  async (_, thunkAPI) => {
+  async (
+    { page = 1, limit = itemsPerPage }: { page?: number; limit?: number },
+    thunkAPI
+  ) => {
     try {
-      const { data } = await axiosInstance.get("/GetAllProducts");
+      const { data } = await axiosInstance.get("/GetAllProducts", {
+        params: { page, limit },
+      });
+
       if (data.errCode !== 0) throw new Error(data.errMessage);
-      return data.products;
+      return {
+        products: data.products,
+        total: data.total,
+        totalPages: data.totalPages,
+        currentPage: data.currentPage,
+      };
     } catch (err: any) {
-      return thunkAPI.rejectWithValue(err.response?.data?.errMessage || err.message || "Something went wrong");
+      return thunkAPI.rejectWithValue(
+        err.response?.data?.errMessage || err.message || "Something went wrong"
+      );
     }
   }
 );
@@ -99,7 +120,10 @@ const productSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
-        state.products = action.payload;
+        state.products = action.payload.products;
+        state.total = action.payload.total;
+        state.totalPages = action.payload.totalPages;
+        state.currentPage = action.payload.currentPage;
         state.loading = false;
       })
       .addCase(fetchProducts.rejected, (state, action) => {
