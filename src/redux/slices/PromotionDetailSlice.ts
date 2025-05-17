@@ -64,7 +64,8 @@ export const fetchPromotionDetailsByPromotionId = createAsyncThunk(
   "promotionDetail/fetchPromotionDetailsByPromotionId",
   async (id: string, { rejectWithValue }) => {
     try {
-      const { data } = await axiosInstance.get('/GetPromotionDetailsByPromotionId/${id}');
+      const { data } = await axiosInstance.get(`/GetPromotionDetailsByPromotionId/${id}`
+      );
       if (data.errCode !== 0) throw new Error(data.errMessage);
 
       return {
@@ -157,7 +158,7 @@ const promotionDetailSlice = createSlice({
         state.error = action.payload as string;
       })
 
-            .addCase(fetchPromotionDetailsByPromotionId.pending, (state) => {
+      .addCase(fetchPromotionDetailsByPromotionId.pending, (state) => {
         state.loading = true;
         state.error = null;
       })

@@ -13,7 +13,7 @@ const TopProducts = () => {
     const { products, loading, error } = useSelector((state: RootState) => state.product);
 
     useEffect(() => {
-        dispatch(fetchProducts());
+        dispatch(fetchProducts({}));
     }, [dispatch]);
 
     const topProducts = products.slice(0, 3);
