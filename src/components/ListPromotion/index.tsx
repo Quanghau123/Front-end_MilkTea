@@ -31,7 +31,7 @@ const ListPromotion = () => {
                 <div
                     key={promotion.PromotionId}
                     className={styles.cardWrapper}
-                    onClick={() => handlePromotionClick(promotion.PromotionId)}
+                    onClick={() => handlePromotionClick(promotion.PromotionId!)}
                 >
                     <PromotionCard promotion={promotion} />
                 </div>
