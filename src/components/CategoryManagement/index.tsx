@@ -13,7 +13,6 @@ import { CategoryProps } from "@/types/CategoryProps";
 import { toast } from "react-toastify";
 
 import styles from "./styles.module.scss";
-import Image from "next/image";
 
 const CategoryManagement = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -145,7 +144,7 @@ const CategoryManagement = () => {
                         }
                       />
                     ) : cat.ImageURL ? (
-                      <Image src={cat.ImageURL} alt={cat.CategoryName} width="50" />
+                      <img src={cat.ImageURL} alt={cat.CategoryName} width="50" />
                     ) : (
                       "N/A"
                     )}
