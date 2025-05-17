@@ -19,6 +19,12 @@ const roboto = Roboto({
   variable: "--font-roboto",
 });
 
+const dancingScript = Dancing_Script({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-dancing-script",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
