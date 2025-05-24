@@ -7,7 +7,7 @@ import { AppDispatch, RootState } from "@/redux/store";
 import { fetchCategories } from "@/redux/slices/CategorySlice";
 import { CategoryProps } from "@/types/CategoryProps";
 
-import styles from "@/components/Categories/Styles.module.scss";
+import styles from "@/components/Categories/styles.module.scss";
 
 const Categories = () => {
     const router = useRouter();
