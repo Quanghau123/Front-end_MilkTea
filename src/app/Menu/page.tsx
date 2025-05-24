@@ -1,11 +1,13 @@
 import Menu from "@/screens/Menu";
-import React from "react";
+import React, { Suspense } from "react";
 
 const page = () => {
     return (
-        <div>
-            <Menu />
-        </div>
+        <Suspense fallback={<div>Đang tải menu...</div>}>
+            <div>
+                <Menu />
+            </div>
+        </Suspense>
     );
 };
 

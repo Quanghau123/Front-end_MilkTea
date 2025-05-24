@@ -1,11 +1,13 @@
 import Payment from "@/screens/Payment";
-import React from "react";
+import React, { Suspense } from "react";
 
 const page = () => {
     return (
-        <div>
-            <Payment />
-        </div>
+        <Suspense fallback={<div>Đang tải thanh toán...</div>}>
+            <div>
+                <Payment />
+            </div>
+        </Suspense>
     );
 };
 
